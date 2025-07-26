@@ -1,127 +1,89 @@
 ```markdown
-# 🎓 Student Management System (Java + MySQL)
+# Student Management System (Java + MySQL)
 
-A simple **console-based Java application** to manage student records using **MySQL database**.  
-You can **add**, **view**, and **delete** student details through a menu-driven program.
+This is a simple **Student Management System** built using Java and MySQL. It allows users to:
 
----
+- Add student details
+- View all students
+- Delete a student
 
-## 🚀 Features
+## 🔧 Technologies Used
 
-- ✅ Add Student (name, email, course)
-- 📄 View All Students
-- ❌ Delete Student by ID
-- 💾 Data stored permanently in MySQL
-
----
-
-## 💻 Technologies Used
-
-- Java (JDK 17 or later)
-- MySQL Server
-- JDBC (MySQL Connector)
-- Windows Command Prompt / VS Code Terminal
-
----
+- Java (Core)
+- MySQL (Database)
+- JDBC (Java Database Connectivity)
+- Command-line interface (CLI)
 
 ## 📁 Project Structure
 
 ```
 
-StudentManagementSystem/
-├── DBConnection.java         # Handles MySQL connection
-├── Main.java                 # Main class with menu logic
-├── Student.java              # Student entity/model
-├── StudentDAO.java           # Data Access Object for DB operations
-├── student\_db.sql            # SQL script to create DB and table
-└── lib/
-└── mysql-connector-j-<version>.jar   # JDBC driver
+StudentManagement/
+│
+├── lib/
+│   └── mysql-connector-j-9.4.0.jar
+│
+├── Main.java
+├── Student.java
+├── StudentDAO.java
+├── DBConnection.java
+├── student\_db.sql
+└── README.md
 
 ````
 
----
+## 🛠 How to Run
 
-## 🛠️ Setup Instructions
+### 1. Prerequisites
+- Java must be installed and configured (JDK 17 or later recommended).
+- MySQL must be installed and running.
+- Make sure `mysql-connector-j-9.4.0.jar` is in the `lib/` folder.
 
-### ✅ Prerequisites
+### 2. Setup Database
 
-- Java JDK installed (https://www.oracle.com/java/technologies/javase-downloads.html)
-- MySQL installed and running
-- MySQL Connector JAR file downloaded (already in `lib/` folder)
+Run the following SQL script in MySQL:
 
----
+```sql
+CREATE DATABASE student_db;
 
-### 🔧 Step-by-Step Guide
+USE student_db;
 
-1. **Create the Database and Table**
-
-   Open MySQL Workbench or CLI and run this SQL:
-
-   ```sql
-   CREATE DATABASE student_db;
-
-   USE student_db;
-
-   CREATE TABLE students (
-       id INT PRIMARY KEY AUTO_INCREMENT,
-       name VARCHAR(100),
-       email VARCHAR(100),
-       course VARCHAR(50)
-   );
+CREATE TABLE students (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    course VARCHAR(50)
+);
 ````
 
-2. **Compile Java Files**
+### 3. Compile
 
-   Open Command Prompt inside the project folder:
-
-   ```bash
-   javac -encoding UTF-8 -cp "lib\mysql-connector-j-*.jar" *.java
-   ```
-
-3. **Run the Application**
-
-   ```bash
-   java -cp ".;lib\mysql-connector-j-*.jar" Main
-   ```
-
-   **Note for VS Code Users:**
-   You can also run directly from VS Code terminal using the same commands.
-
----
-
-## 🧪 Sample Menu Output
-
+```bash
+javac -encoding UTF-8 -cp "lib/mysql-connector-j-9.4.0.jar" *.java
 ```
-=== Student Management System ===
-1. Add Student
-2. View All Students
-3. Delete Student
-4. Exit
-Choose option:
+
+### 4. Run
+
+```bash
+java -cp ".;lib/mysql-connector-j-9.4.0.jar" Main
 ```
 
 ---
 
-## 📌 Notes
+## 📦 MySQL JDBC Driver
 
-* ⚠️ Update your `DBConnection.java` with your actual MySQL username & password:
+This project uses the `mysql-connector-j-9.4.0.jar` to establish JDBC connections with the MySQL database.
 
-  ```java
-  String url = "jdbc:mysql://localhost:3306/student_db";
-  String user = "root";
-  String password = "your_password";
-  ```
+* Make sure this file is placed in the `lib/` folder.
+* During compilation and execution, it is referenced using the `-cp` (classpath) option.
 
-* Make sure MySQL service is running before executing Java code.
+> ⚠️ Do not modify or open this `.jar` file. It is a pre-built library from the official MySQL site.
 
-* If you face `ClassNotFoundException`, ensure the JAR path is correct in the classpath.
+🔗 [Download MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)
 
 ---
 
-## 🙋‍♀️ Developed By
+## 💡 Author
 
-**Gopika Ganesan**
-A simple academic project built with love using Java and MySQL.
-
-```
+Made with ❤️ by Gopika Ganesan
 
